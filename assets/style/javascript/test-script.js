@@ -99,13 +99,13 @@ if (!setLength) {
 // // will display result of var password (which is the result of generatePassword(fxn))
 // passwordtext.value = password;
 
-//   // function generatePassword(length) {
-//   //   var password = " ";
-//   //   
-//   //   for ( var i = 0; i < password.length; i++ ) {
-//   //     password += characters.charAt(Math.floor(Math.random() * charactersLength));
-//   //   }
-//   //   return result;
+  function generatePassword(length) {
+    var password = " ";
+    
+    for ( var i = 0; i < password.length; i++ ) {
+      password += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
 //   // }
 // // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
