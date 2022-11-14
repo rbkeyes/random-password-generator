@@ -8,12 +8,21 @@ var upCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var num = "01234567890123456789";
 var special = "!#$%&*+-=?@_~";
 
+
+var charactersArray = []
+var oneEach = ""
+
 var remaining = "";
 var length = "";
 var characters = "";
 
-var charactersArray = []
-var oneEach = ""
+var remainingLength = length - charactersArray.length;
+// generate random remaining characters (password.length - oneEach.length)
+// function randomRemaining() {
+//   for (var r = 0; r < remainingLength.length; r++)
+//     remaining += characters.charAt(Math.floor(Math.random() * characters.length));
+//   return remaining;
+// }
 
 // generate random: 1 of each character type
 function randomOneOfEach() {
@@ -22,12 +31,6 @@ function randomOneOfEach() {
   return oneEach; }
 }
 // randomRemaining()
-// generate random remaining characters (password.length - oneEach.length)
-// function randomRemaining() {
-//   for (var r = 0; r < remainingLength.length; r++)
-//     remaining += characters.charAt(Math.floor(Math.random() * remainingLength.length));
-//   return remaining;
-// }
 
 
   // set password criteria
