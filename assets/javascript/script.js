@@ -16,7 +16,7 @@ var remaining = "";
 var length = "";
 var characters = "";
 
-var remainingLength = length - charactersArray.length;
+var remainingLength = ((+ length) - charactersArray.length);
 // generate random remaining characters (password.length - oneEach.length)
 // function randomRemaining() {
 //   for (var r = 0; r < remainingLength.length; r++)
@@ -106,7 +106,8 @@ function randomOneOfEach() {
 function writePassword() {
   userSelect()
   console.log(oneEach);
-  // console.log(remaining);
+  console.log(+ length)
+  console.log(remainingLength);
 }
 
 // Add event listener to generate button
