@@ -92,11 +92,6 @@ button[disabled] {
     cursor: pointer;
 }
 
-/* I don't see where this is applied? */
-/* .float-right {
-    float: right;
-} */
-
 #password {
     -webkit-appearance: none;
     -moz-appearance: none;
