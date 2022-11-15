@@ -17,7 +17,7 @@ Upon loading the page, click the red "generate" button to begin criteria selecti
 
 ![screenshot of password generator when page first loads](assets/images/random-password-generator-screenshot.png)
 
-[Random Password Generator]()
+[Random Password Generator](https://rbkeyes.github.io/random-password-generator/)
 
 ## Credits
 
