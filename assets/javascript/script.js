@@ -1,46 +1,19 @@
-// get selectors from HTML
-var generateBtn = document.querySelector("#generate");
-var password = document.getElementById("password");
-var passwordText = document.querySelector("#password");
 
+// set password criteria
 var lowCase = "abcdefghijklmnopqrstuvwxyz";
 var upCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var num = "01234567890123456789";
 var special = "!#$%&*+-=?@_~";
-
-
-var charactersArray = []
-var oneEach = ""
-
-var remaining = "";
-var length = "";
 var characters = "";
+var charactersArray = []
 
-var remainingLength = ((+ length) - charactersArray.length);
-// generate random remaining characters (password.length - oneEach.length)
-// function randomRemaining() {
-//   for (var r = 0; r < remainingLength.length; r++)
-//     remaining += characters.charAt(Math.floor(Math.random() * characters.length));
-//   return remaining;
-// }
-
-// generate random: 1 of each character type
-function randomOneOfEach() {
-  { for (var a = 0; a < charactersArray.length; a++)
-    oneEach += charactersArray[a].charAt(Math.floor(Math.random() * charactersArray.length));
-  return oneEach; }
-}
-// randomRemaining()
-
-
-  // set password criteria
-  function userSelect() {
+function userSelect() {
   // how many characters?
   var setLength = window.prompt("How many characters should your password contain? Please enter a value between 8 and 128.");
   if (!setLength) {
     return;
   } else if (setLength >= 8 && setLength <= 128) {
-    length = setLength;
+    length = +setLength;
     characters += lowCase;
     charactersArray.push(lowCase);
 
@@ -103,14 +76,47 @@ function randomOneOfEach() {
   console.log(selection);
 }
 
+// generate random: 1 of each character type
+var oneEach = ""
+var randomSelectCharacters = "";
+
+function randomOneOfEach() {
+  for (var a = 0; a < charactersArray.length; a++) {
+    oneEach += charactersArray[a].charAt(Math.floor(Math.random() * charactersArray.length));
+  }
+  randomSelectCharacters += oneEach;
+  return oneEach;
+}
+
+// generate random: remaining characters
+var remaining = "";
+var length;
+
+function randomRemaining() {
+  for (var r = 0; r < (length - oneEach.length); r++) {
+    remaining += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  randomSelectCharacters += remaining;
+  return remaining;
+}
+
+// write password
+
+var password = document.getElementById("password");
 function writePassword() {
   userSelect()
-  console.log(oneEach);
-  console.log(+ length)
-  console.log(remainingLength);
+  randomRemaining();
+  
+  // shuffle the password to make it more random
+  var randomPassword = randomSelectCharacters.split("").sort(function () { return 0.5 - Math.random() }).join("");
+  console.log(randomPassword);
+  
+  var passwordText = document.querySelector("#password");
+  passwordText.value = randomPassword;
 }
 
 // Add event listener to generate button
+var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
 
 
