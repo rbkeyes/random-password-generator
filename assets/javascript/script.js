@@ -48,14 +48,14 @@ function userSelect() {
     var setSpecial = window.confirm("Numbers will now be included.\nHow about some special characters?")
   } else {
     setNum = "No"
-    setSpecial = window.confirm("Nix the numbers, no problem.\nHow about some special characters?")
+    setSpecial = window.confirm("Nix the numbers, done and done.\nHow about some special characters?")
     num = " ";
   }
   console.log(setNum);
 
   // include special characters?
   if (setSpecial) {
-    window.alert("Special characters sound great!\nPress OK to review your choices.");
+    window.alert("Great, adding special characters.\nPress OK to review your choices.");
     setSpecial = "Yes"
     characters += special;
     charactersArray.push(special);
