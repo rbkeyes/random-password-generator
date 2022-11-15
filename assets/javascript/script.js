@@ -103,20 +103,39 @@ function randomRemaining() {
 // write password
 
 var password = document.getElementById("password");
+var passwordText = document.querySelector("#password");
+
 function writePassword() {
   userSelect()
   randomRemaining();
-  
+
+  console.log(characters);
+  console.log(oneEach);
+  console.log(remaining);
+  console.log(randomSelectCharacters);
+
   // shuffle the password to make it more random
   var randomPassword = randomSelectCharacters.split("").sort(function () { return 0.5 - Math.random() }).join("");
   console.log(randomPassword);
   
-  var passwordText = document.querySelector("#password");
   passwordText.value = randomPassword;
+}
+
+function clearInput() {
+  if (passwordText.value != "") {
+    passwordText.value = "";
+    characters = "";
+    charactersArray = [];
+    oneEach = "";
+    remaining = "";
+    randomSelectCharacters = "";
+    randomPassword = "";
+  }
 }
 
 // Add event listener to generate button
 var generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener("click", clearInput)
 generateBtn.addEventListener("click", writePassword);
 
 
